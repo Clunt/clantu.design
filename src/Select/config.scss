@@ -1,0 +1,43 @@
+@import '../common.scss';
+
+
+$labelColor: #9e9e9e;
+$placeholderColor: #9e9e9e;
+// 线
+$defaultBorderColor: #f0f0f0;
+$defaultBorderColorFocus: $primaryColor;
+$defaultArrowColor: $primaryColor;
+// 线 - 大
+$defaultLargeHeight: 30px;
+$defaultLargeFontSize: 20px;
+$defaultLargePaddingX: 6px;
+$defaultLargePaddingY: 6px;
+$defaultLargeArrowSize: 24px;
+// 线 - 中
+$defaultDefaultHeight: 28px;
+$defaultDefaultFontSize: 16px;
+$defaultDefaultPaddingX: 12px;
+$defaultDefaultPaddingY: 6px;
+$defaultDefaultArrowSize: 20px;
+// 线 - 小
+$defaultSmallHeight: 18px;
+$defaultSmallFontSize: 12px;
+$defaultSmallPaddingX: 3px;
+$defaultSmallPaddingY: 3px;
+$defaultSmallArrowSize: 14px;
+// 框
+// 框 - 大
+$frameLargeHeight: 48px;
+$frameLargeFontSize: 20px;
+$frameLargePaddingX: 16px;
+$frameLargeArrowSize: 20px;
+// 框 - 中
+$frameDefaultHeight: 48px;
+$frameDefaultFontSize: 16px;
+$frameDefaultPaddingX: 12px;
+$frameDefaultArrowSize: 16px;
+// 框 - 小
+$frameSmallHeight: 36px;
+$frameSmallFontSize: 14px;
+$frameSmallPaddingX: 12px;
+$frameSmallArrowSize: 14px;

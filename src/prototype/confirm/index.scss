@@ -1,0 +1,55 @@
+@import '../../common.scss';
+
+.cd-confirm {
+  .cd-layer__main {
+    width: 80%;
+    max-width: 360px;
+    padding: 30px 36px;
+  }
+
+  .cd-dialog__message {
+  }
+
+  .cd-dialog__buttons {
+    padding: 30px 0 3px;
+    font-size: 0;
+    text-align: right;
+
+    .cd-button {
+      margin-left: 18px;
+    }
+
+  }
+
+  &.cd-dialog--title {
+    .cd-dialog__title {
+      font-size: 18px;
+      line-height: 24px;
+    }
+
+    .cd-dialog__message {
+      padding-top: 12px;
+      padding-left: 12px;
+      font-size: 14px;
+      color: $defaultColor1;
+    }
+  }
+}
+
+@media (max-width:$platform-phone-max) {
+  .cd-confirm {
+    .cd-layer__main {
+      padding: 24px 28px;
+    }
+
+    .cd-dialog__buttons {
+      padding-bottom: 0;
+    }
+
+    &.cd-dialog--title {
+      .cd-dialog__message {
+        padding-left: 0;
+      }
+    }
+  }
+}

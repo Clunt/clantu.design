@@ -1,0 +1,95 @@
+@import '../common.scss';
+
+
+@mixin normal() {
+  opacity: 0.36;
+}
+
+@mixin hover() {
+  opacity: 1;
+}
+
+.cd-tab {
+  .cd-tab__nav {
+    font-size: 0;
+    .cd-tab__nav__box {
+      .cd-tab__nav__list {
+        text-align: center;
+        li {
+          display: inline-block;
+          font-size: 14px;
+          line-height: 18px;
+
+          &.cd-tab__nav__item--inactive {
+            @include normal;
+            cursor: pointer;
+          }
+
+          &.cd-tab__nav__separator {
+            margin: 0 6px;
+          }
+        }
+      }
+    }
+  }
+
+  .cd-tab__pane {
+    position: relative;
+    .cd-tab__pane__list {
+      position: relative;
+      height: 100%;
+      .cd-tab__pane__item {
+        &--prev,
+        &--next {
+          position: absolute;
+          top: 0;
+          width: 100%;
+        }
+        &--prev {
+          left: -100%;
+        }
+        &--next {
+          right: -100%;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width:$screen-md-min) {
+  .cd-tab {
+    .cd-tab__nav {
+      .cd-tab__nav__box {
+        .cd-tab__nav__list {
+          li {
+            &.cd-tab__nav__item--inactive {
+              &:hover {
+                @include hover;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width:$screen-sm-max) {
+  .cd-tab {
+    .cd-tab__nav {
+      .cd-tab__nav__box {
+        .cd-tab__nav__list {
+          li {
+            font-size: 12px;
+
+            &.cd-tab__nav__item--inactive {
+              &:active {
+                @include hover;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

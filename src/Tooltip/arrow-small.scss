@@ -1,0 +1,154 @@
+@import '../common.scss';
+$arrowColor: #000;
+$popupColor: #000;
+
+
+.cd-tooltip.cd-tooltip--size-small {
+  // TOP
+  .cd-core-align--top,
+  .cd-core-align--topLeft,
+  .cd-core-align--topRight {
+    // min-width: 80px;
+
+    .cd-tooltip__arrow {
+      bottom: 0px;
+      border-top: 3px solid $arrowColor;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+    }
+
+  }
+
+  .cd-core-align--top {
+    .cd-tooltip__arrow {
+      left: 50%;
+      margin-left: -6px;
+    }
+
+  }
+
+  .cd-core-align--topLeft {
+    .cd-tooltip__arrow {
+      left: 27px;
+    }
+
+  }
+
+  .cd-core-align--topRight {
+    .cd-tooltip__arrow {
+      right: 27px;
+    }
+
+  }
+
+  // BOTTOM
+  .cd-core-align--bottom,
+  .cd-core-align--bottomLeft,
+  .cd-core-align--bottomRight {
+    // min-width: 80px;
+
+    .cd-tooltip__arrow {
+      top: 0px;
+      border-bottom: 3px solid $arrowColor;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+    }
+
+  }
+
+  .cd-core-align--bottom {
+    .cd-tooltip__arrow {
+      left: 50%;
+      margin-left: -6px;
+    }
+
+  }
+
+  .cd-core-align--bottomLeft {
+    .cd-tooltip__arrow {
+      left: 27px;
+    }
+
+  }
+
+  .cd-core-align--bottomRight {
+    .cd-tooltip__arrow {
+      right: 27px;
+    }
+
+  }
+
+  // LEFT
+  .cd-core-align--left,
+  .cd-core-align--leftTop,
+  .cd-core-align--leftBottom {
+    // min-height: 80px;
+
+    .cd-tooltip__arrow {
+      right: 0px;
+      border-left: 3px solid $arrowColor;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+    }
+
+  }
+
+  .cd-core-align--left {
+    .cd-tooltip__arrow {
+      top: 50%;
+      margin-top: -6px;
+    }
+
+  }
+
+  .cd-core-align--leftTop {
+    .cd-tooltip__arrow {
+      top: 27px;
+    }
+
+  }
+
+  .cd-core-align--leftBottom {
+    .cd-tooltip__arrow {
+      bottom: 27px;
+    }
+
+  }
+
+  // RIGHT
+  .cd-core-align--right,
+  .cd-core-align--rightTop,
+  .cd-core-align--rightBottom {
+    // min-height: 80px;
+
+    .cd-tooltip__arrow {
+      left: 0px;
+      border-right: 3px solid $arrowColor;
+      border-top: 6px solid transparent;
+      border-bottom: 6px solid transparent;
+    }
+
+  }
+
+  .cd-core-align--right {
+    .cd-tooltip__arrow {
+      top: 50%;
+      margin-top: -6px;
+    }
+
+  }
+
+  .cd-core-align--rightTop {
+    .cd-tooltip__arrow {
+      top: 27px;
+    }
+
+  }
+
+  .cd-core-align--rightBottom {
+    .cd-tooltip__arrow {
+      bottom: 27px;
+    }
+
+  }
+}

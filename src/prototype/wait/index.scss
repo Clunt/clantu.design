@@ -1,0 +1,13 @@
+.cd-wait {
+  .cd-spin{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .cd-layer__mask,
+  .cd-layer__main {
+    display: none;
+  }
+}

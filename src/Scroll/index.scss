@@ -1,0 +1,27 @@
+@import '../common.scss';
+
+
+.cd-scroll {
+  position: relative;
+  overflow: hidden;
+
+  &>.cd-scroll__view {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    margin-right: -20px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    &>.cd-scroll__main {
+      position: relative;
+    }
+  }
+
+  &.cd-scroll--disabled {
+    &>.cd-scroll__view {
+      overflow: hidden;
+    }
+  }
+}

@@ -1,0 +1,279 @@
+@import '../common.scss';
+
+.cd-scroll {
+  .cd-scroll__axis {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    right: 12px;
+    bottom: 0;
+    width: 48px;
+    opacity: 0;
+    user-select: none;
+
+    &.cd-scroll__axis--show,
+    &.cd-scroll__axis--showing,
+    &.cd-scroll__axis--scrolling {
+      opacity: 1;
+      transition: opacity 600ms;
+
+      .cd-scroll__axis-core {
+        .cd-scroll__axis-tooltip {
+          display: block
+        }
+
+      }
+
+    }
+
+    &.cd-scroll__axis--showing {
+      .cd-scroll__axis-core {
+        .cd-scroll__axis-line,
+        .cd-scroll__axis-scale,
+        .cd-scroll__axis-tooltip {
+          opacity: 0;
+        }
+
+        .cd-scroll__axis-line {
+          &.cd-scroll__axis-line--anchor {
+            transition: none;
+          }
+
+        }
+
+        .cd-scroll__axis-tooltip {
+          transform: translateX(100%);
+        }
+
+      }
+
+    }
+
+    .cd-scroll__axis-core {
+      position: absolute;
+      top: 24px;
+      left: 0;
+      width: 100%;
+      bottom: 36px;
+      cursor: row-resize;
+
+      .cd-scroll__axis-scale {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 42px;
+        height: 100%;
+        font-size: 14px;
+        color: #686868;
+        line-height: 1;
+
+        li {
+          position: absolute;
+          right: 0;
+          width: 100%;
+
+          span {
+            position: absolute;
+            top: -10px;
+            right: 6px;
+            width: 100%;
+            text-align: right;
+          }
+
+          &.scale__first {
+            span {
+              top: -14px;
+            }
+
+          }
+
+          &.scale__child {
+            right: 6px;
+            width: 9px;
+            height: 2px;
+            margin-top: -1px;
+            background: #bababa;
+
+            span {
+              display: none;
+            }
+
+          }
+
+        }
+
+      }
+
+      .cd-scroll__axis-line {
+        display: none;
+        position: absolute;
+        width: 42px;
+        height: 2px;
+        margin-top: -1px;
+
+        &--anchor {
+          background: $primaryColor;
+        }
+
+        &--cursor {
+          background: rgba(0, 0, 0, 0.3);
+        }
+
+        &--show {
+          display: block;
+        }
+
+      }
+
+      .cd-scroll__axis-tooltip {
+        display: none;
+        position: absolute;
+        right: 54px;
+        height: 36px;
+        margin-top: -18px;
+        padding: 0 18px;
+        background: rgba(0, 0, 0, 0.8);
+        font-size: 16px;
+        color: #fff;
+        line-height: 36px;
+        border-radius: 2px;
+        white-space: nowrap;
+        pointer-events: none;
+      }
+
+    }
+
+  }
+
+}
+
+@media (max-width:$platform-phone-lg-max) {
+  .cd-scroll {
+    .cd-scroll__axis {
+      width: 108px;
+      right: -100%;
+      opacity: 1;
+
+      &.cd-scroll__axis--show,
+      &.cd-scroll__axis--showing,
+      &.cd-scroll__axis--scrolling {
+        right: 0;
+      }
+
+      .cd-scroll__axis-core {
+        top: 36px;
+        bottom: 36px;
+
+        .cd-scroll__axis-scale {
+          width: 100%;
+          font-size: 12px;
+
+          li {
+            right: 52px;
+
+            span {
+              top: -10px;
+              right: 0;
+              width: auto;
+              padding: 0 12px;
+              line-height: 20px;
+              text-align: right;
+              border-radius: 10px;
+              background: #fafafa;
+              opacity: 0.9;
+              box-shadow: 0 0 3px rgba(0, 0, 0, 0.12);
+            }
+
+            &.scale__first {
+              span {
+                top: -10px;
+              }
+
+            }
+
+            &.scale__child {
+              right: 64px;
+              width: 18px;
+              height: 2px;
+              margin-top: -2px;
+              background: #fafafa;
+              border-radius: 2px;
+              opacity: 0.8;
+              box-shadow: 0 0 3px rgba(0, 0, 0, 0.12);
+            }
+
+          }
+
+        }
+
+        .cd-scroll__axis-line {
+          &.cd-scroll__axis-line--anchor {
+            right: 0;
+            width: 30px;
+            height: 42px;
+            margin-top: -21px;
+            background: #fff;
+            border-radius: 21px 0 0 21px;
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.24);
+            transition: opacity 300ms;
+
+            &:before,
+            &:after {
+              content: '';
+              position: absolute;
+              right: 7px;
+              border-left: 4px solid transparent;
+              border-right: 4px solid transparent;
+            }
+
+            &:before {
+              top: 14px;
+              border-bottom: 4px solid #585858;
+            }
+
+            &:after {
+              bottom: 14px;
+              border-top: 4px solid #585858;
+            }
+
+          }
+
+          &.cd-scroll__axis-line--cursor {
+            display: none;
+          }
+
+        }
+
+        .cd-scroll__axis-tooltip {
+          right: 52px;
+          height: 26px;
+          margin-top: -13px;
+          padding: 0 12px;
+          background: #fafafa;
+          font-size: 14px;
+          color: #686868;
+          line-height: 26px;
+          border-radius: 13px;
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.24);
+        }
+
+      }
+
+      &.cd-scroll__axis--scrolling {
+        width: 0;
+
+        .cd-scroll__axis-core {
+          .cd-scroll__axis-scale,
+          .cd-scroll__axis-tooltip {
+            display: none;
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}

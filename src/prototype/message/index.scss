@@ -1,0 +1,73 @@
+@import '../../common.scss';
+
+.cd-message {
+  position: fixed;
+  z-index: 99999999;
+  left: 24px;
+  bottom: 24px;
+
+  .cd-message__item {
+    position: relative;
+    min-width: 240px;
+    max-width: 360px;
+    margin-top: 6px;
+    padding: 16px;
+    background: rgba(52, 52, 52, 0.9);
+    border-radius: 3px;
+    transition: all 1s;
+
+    &.v-enter,
+    &.v-leave-to {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    &.v-leave-active {
+      position: fixed;
+    }
+
+    * {
+      color: #fff;
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    .item__title {
+      margin-bottom: 6px;
+      font-size: 16px;
+      @include make-ellipsis();
+    }
+
+    .item__content {
+    }
+
+    &--closable {
+      .item__title,
+      .item__content {
+        padding-right: 20px;
+      }
+
+      .item__title + .item__content {
+        padding-right: 0;
+      }
+
+    }
+
+    .item__close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 16px;
+      height: 16px;
+      text-align: center;
+      line-height: 16px;
+
+      .cd-icon {
+        font-size: 16px;
+      }
+
+    }
+
+  }
+
+}

@@ -1,0 +1,99 @@
+@import '../common.scss';
+$fontSize: $defaultFontSize;
+$fontSizeMini: $fontSize - 4;
+$fontSizeSmall: $fontSize - 2;
+$fontSizeLarge: $fontSize + 2;
+
+@mixin hover() {
+  opacity: 0.36;
+}
+
+@mixin unhover() {
+  opacity: 1 !important;
+}
+
+.cd-button {
+  display: inline-block;
+  padding: 0;
+  border: none;
+  line-height: 1;
+  outline: none;
+  user-select: none;
+  cursor: pointer;
+  transition: opacity 300ms;
+
+  &.cd-button--size-mini {
+    font-size: $fontSizeMini
+  }
+
+  &.cd-button--size-small {
+    font-size: $fontSizeSmall
+  }
+
+  &.cd-button--size-default {
+    font-size: $fontSize;
+  }
+
+  &.cd-button--size-large {
+    font-size: $fontSizeLarge
+  }
+
+  &.cd-button--kind-link {
+    text-decoration: underline;
+  }
+
+  &.cd-button--kind-default {
+    color: $defaultColor;
+  }
+
+  &.cd-button--kind-primary {
+    color: $primaryColor;
+  }
+
+  &.cd-button--kind-danger {
+    color: $dangerColor;
+  }
+
+  &.cd-button--kind-warn {
+    color: $warnColor;
+  }
+
+  &.cd-button--kind-ghost {
+    color: $ghostColor;
+  }
+
+  &.cd-button--kind-inherit {
+    color: inherit;
+  }
+
+  &.cd-button--active {
+    @include hover;
+  }
+
+  &.cd-button--disabled {
+    color: $defaultColor3;
+    cursor: not-allowed;
+    @include unhover;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+    @include unhover;
+  }
+}
+
+@media (min-width:$screen-md-min) {
+  .cd-button {
+    &:hover {
+      @include hover;
+    }
+  }
+}
+
+@media (max-width:$screen-sm-max) {
+  .cd-button {
+    &:active {
+      @include hover;
+    }
+  }
+}

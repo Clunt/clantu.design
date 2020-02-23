@@ -1,0 +1,187 @@
+@import '../common.scss';
+$placeholderColor: #9e9e9e;
+// 线
+$defaultBorderColor: #f0f0f0;
+$defaultBorderColorFocus: $primaryColor;
+// 线 - 大
+$defaultLargeHeight: 30px;
+$defaultLargeLineHeight: 24px;
+$defaultLargeFontSize: 20px;
+// 线 - 中
+$defaultDefaultHeight: 28px;
+$defaultDefaultLineHeight: 20px;
+$defaultDefaultFontSize: 16px;
+// 线 - 小
+$defaultSmallHeight: 18px;
+$defaultSmallLineHeight: 16px;
+$defaultSmallFontSize: 12px;
+// 框
+// 框 - 大
+$frameLargeLineHeight: 48px;
+$frameLargeFontSize: 20px;
+$frameLargePaddingX: 16px;
+$frameLargePaddingY: 9px;
+// 框 - 中
+$frameDefaultLineHeight: 24px;
+$frameDefaultFontSize: 16px;
+$frameDefaultPaddingX: 12px;
+$frameDefaultPaddingY: 12px;
+// 框 - 小
+$frameSmallLineHeight: 36px;
+$frameSmallFontSize: 14px;
+$frameSmallPaddingX: 12px;
+$frameSmallPaddingY: 8px;
+
+.cd-input {
+  display: inline-block;
+
+  .cd-input__element {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    color: inherit;
+
+    &::placeholder {
+      color: $placeholderColor;
+    }
+
+  }
+
+  textarea.cd-input__element {
+    resize: none;
+  }
+
+  &.cd-input--kind-default {
+    position: relative;
+
+    .cd-input__element {
+      padding: 0;
+    }
+
+    &.cd-input--size-large {
+      .cd-input__element {
+        height: $defaultLargeHeight;
+        padding: ($defaultLargeHeight - $defaultLargeLineHeight) / 2 0;
+        font-size: $defaultLargeFontSize;
+        line-height: $defaultLargeLineHeight;
+      }
+
+    }
+
+    &.cd-input--size-default {
+      .cd-input__element {
+        height: $defaultDefaultHeight;
+        padding: ($defaultDefaultHeight - $defaultDefaultLineHeight) / 2 0;
+        font-size: $defaultDefaultFontSize;
+        line-height: $defaultDefaultLineHeight;
+      }
+
+    }
+
+    &.cd-input--size-small {
+      .cd-input__element {
+        height: $defaultSmallHeight;
+        padding: ($defaultSmallHeight - $defaultSmallLineHeight) / 2 0;
+        font-size: $defaultSmallFontSize;
+        line-height: $defaultSmallLineHeight;
+      }
+
+    }
+
+    .cd-input__border {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      line-height: 0;
+      overflow: hidden;
+
+      span {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background: $defaultBorderColor;
+      }
+
+      &:after {
+        position: relative;
+        content: '';
+        display: inline-block;
+        width: 0;
+        height: 100%;
+        background: $defaultBorderColorFocus;
+        vertical-align: top;
+        transition: width 300ms;
+      }
+
+    }
+
+    &.cd-input--focus {
+      .cd-input__border {
+        &:after {
+          width: 100%;
+        }
+
+      }
+
+    }
+
+    &.cd-input--disabled {
+      background: $defaultColor8;
+    }
+
+  }
+
+  &.cd-input--kind-frame {
+    border-radius: 3px;
+    box-shadow: 0 0 12px #e9e9e9;
+
+    .cd-input__element {
+      background: #fff;
+    }
+
+    &.cd-input--size-large {
+      .cd-input__element {
+        height: $frameLargeLineHeight + $frameLargePaddingY * 2;
+        font-size: $frameLargeFontSize;
+        line-height: $frameLargeLineHeight;
+        padding: $frameLargePaddingY $frameLargePaddingX;
+      }
+
+    }
+
+    &.cd-input--size-default {
+      .cd-input__element {
+        height: $frameDefaultLineHeight + $frameDefaultPaddingY * 2;
+        font-size: $frameDefaultFontSize;
+        line-height: $frameDefaultLineHeight;
+        padding: $frameDefaultPaddingY $frameDefaultPaddingX;
+      }
+
+    }
+
+    &.cd-input--size-small {
+      .cd-input__element {
+        height: $frameSmallLineHeight + $frameSmallPaddingY * 2;
+        font-size: $frameSmallFontSize;
+        line-height: $frameSmallLineHeight;
+        padding: $frameSmallPaddingY $frameSmallPaddingX;
+      }
+
+    }
+
+    .cd-input__border {
+      display: none;
+    }
+
+  }
+
+  &.cd-input--hidden {
+    display: none;
+  }
+
+}

@@ -1,0 +1,19 @@
+{
+  "name": "clantu.design",
+  "version": "0.0.0",
+  "description": "Vue Components Designed by Clantu",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Clunt/clantu.design.git"
+  },
+  "author": "Clunt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Clunt/clantu.design/issues"
+  },
+  "homepage": "https://github.com/Clunt/clantu.design#readme"
+}

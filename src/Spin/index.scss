@@ -1,0 +1,171 @@
+@import '../common.scss';
+
+
+@mixin make-flower($size, $w, $h, $duration, $auto) {
+  width: $size;
+  height: $size;
+
+  $width: if( $auto, percentage($w), round($size * $w) );
+  $height: if( $auto, percentage($h), round($size * $h) );
+  $top: if( $auto, (100% * (1 - $h)) / 2, ($size - $height) / 2 );
+  $left: if( $auto, (100% * (1 - $w)) / 2, ($size - $width) / 2 );
+  $translateX: (($w - 1) * 100%) / 2 / $w;
+  $borderRadius: ceil($size * $h / ($h * 0 + 1) / 100);
+
+  .cd-spin__elements {
+    position: absolute;
+    top: $top;
+    left: $left;
+    width: $width;
+    height: $height;
+    opacity: 0;
+    border-radius: $borderRadius;
+    animation: cdSpinFlower $duration linear infinite;
+  }
+
+  @for $i from 1 through 12 {
+    .cd-spin__elements--#{$i} {
+      transform: rotate(($i - 1) * 30deg) translate($translateX, 0);
+      animation-delay: $duration * ($i - 1) / 12 - $duration;
+    }
+  }
+}
+
+.cd-spin {
+  &.cd-spin--kind-default {
+    display: inline-block;
+
+    .cd-spin__element {
+      border-style: solid;
+      border-color: #fff;
+      border-bottom-color: transparent !important;
+      border-radius: 100%;
+      animation: cdSpinDefault 900ms linear infinite both;
+    }
+
+    &.cd-spin--size-small .cd-spin__element {
+      width: 12px;
+      height: 12px;
+      border-width: 1px;
+    }
+
+    &.cd-spin--size-default .cd-spin__element {
+      width: 24px;
+      height: 24px;
+      border-width: 2px;
+    }
+
+    &.cd-spin--size-large .cd-spin__element {
+      width: 32px;
+      height: 32px;
+      border-width: 3px;
+    }
+  }
+
+  &.cd-spin--kind-line {
+    .cd-spin__element {
+      position: relative;
+      background: $primaryColor;
+      overflow: hidden;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: #9CBFF9;
+        border-radius: 3px;
+        animation: cdSpinLine 1500ms ease-in infinite both;
+      }
+    }
+
+    &.cd-spin--size-small {
+      .cd-spin__element {
+        height: 1px;
+      }
+    }
+
+    &.cd-spin--size-default {
+      .cd-spin__element {
+        height: 2px;
+        border-radius: 1px;
+      }
+    }
+
+    &.cd-spin--size-large {
+      .cd-spin__element {
+        height: 3px;
+        border-radius: 3px;
+      }
+    }
+  }
+
+  &.cd-spin--kind-flower {
+    display: inline-block;
+
+    .cd-spin__element {
+      position: relative;
+
+      .cd-spin__elements {
+        background: $defaultColor4;
+      }
+    }
+
+    &.cd-spin--size-small .cd-spin__element {
+      @include make-flower(14px, 0.24, 0.072, 1s, false);
+    }
+
+    &.cd-spin--size-default .cd-spin__element {
+      @include make-flower(16px, 0.25, 0.0625, 1s, false);
+    }
+
+    &.cd-spin--size-large .cd-spin__element {
+      @include make-flower(24px, 0.26, 0.05, 1s, false);
+    }
+
+    &.cd-spin--size-auto .cd-spin__element {
+      @include make-flower(16px, 0.25, 0.0625, 1s, false);
+    }
+  }
+}
+
+@keyframes cdSpinDefault {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes cdSpinLine {
+  0% {
+    width: 0;
+    left: 0;
+  }
+
+  50% {
+    width: 36%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes cdSpinFlower {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.25;
+  }
+}

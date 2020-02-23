@@ -1,0 +1,56 @@
+@import '../common.scss';
+@import './arrow-default.scss';
+@import './arrow-large.scss';
+@import './arrow-small.scss';
+$arrowColor: #000;
+$popupColor: #000;
+
+.cd-tooltip {
+  display: inline-block;
+
+  .cd-tooltip__popup {
+    .cd-tooltip__box {
+      background: $popupColor;
+      color: #fff;
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.26);
+    }
+
+    .cd-tooltip__arrow {
+      position: absolute;
+    }
+  }
+
+  &.cd-tooltip--size-small .cd-tooltip__popup {
+    .cd-tooltip__box {
+      padding: 4px;
+      font-size: 12px;
+    }
+
+    &.cd-tooltip__popup--arrow {
+      padding: 3px;
+    }
+  }
+
+  &.cd-tooltip--size-default .cd-tooltip__popup {
+    .cd-tooltip__box {
+      padding: 8px;
+      font-size: 14px;
+    }
+
+    &.cd-tooltip__popup--arrow {
+      padding: 4px;
+    }
+  }
+
+  &.cd-tooltip--size-large .cd-tooltip__popup {
+    .cd-tooltip__box {
+      padding: 12px;
+      font-size: 16px;
+    }
+
+    &.cd-tooltip__popup--arrow {
+      padding: 8px;
+    }
+  }
+
+}

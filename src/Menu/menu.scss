@@ -1,0 +1,122 @@
+@import '../common.scss';
+
+.cd-menu {
+  display: inline-block;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  background: #fff;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.12);
+  border-radius: 3px;
+  text-align: left;
+
+  .cd-menu__item {
+    white-space: nowrap;
+    cursor: default;
+
+    &.cd-menu__item--disabled {
+      .cd-menu__text {
+        color: $defaultColor3;
+      }
+    }
+
+    &.cd-trigger--open {
+      &>.cd-menu__text {
+        background: #f9f9f9;
+      }
+    }
+  }
+
+  .cd-menu__line {
+    height: 1px;
+    background: #f6f6f6;
+  }
+
+  &.cd-menu--default {
+    padding: 6px 0;
+    font-size: 14px;
+    line-height: 18px;
+
+    .cd-menu__item {
+      .cd-menu__text {
+        padding: 9px 24px;
+      }
+    }
+
+    .cd-menu__line {
+      margin: 6px 0;
+    }
+  }
+
+  &.cd-menu--small {
+    padding: 6px 0;
+    font-size: 14px;
+    line-height: 20px;
+
+    .cd-menu__item {
+      .cd-menu__text {
+        padding: 3px 18px;
+      }
+    }
+
+    .cd-menu__line {
+      margin: 3px 0;
+    }
+  }
+
+  &.cd-menu--large {
+    padding: 9px 0;
+    font-size: 16px;
+    line-height: 24px;
+
+    .cd-menu__item {
+      .cd-menu__text {
+        padding: 9px 24px;
+      }
+    }
+
+    .cd-menu__line {
+      margin: 6px 0;
+    }
+  }
+}
+
+
+@media (min-width:$screen-md-min) {
+  .cd-menu {
+    .cd-menu__item {
+      .cd-menu__text {
+        &:hover {
+          background: #f9f9f9;
+        }
+      }
+
+      &.cd-menu__item--disabled {
+        .cd-menu__text {
+          &:hover {
+            background: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width:$screen-sm-max) {
+  .cd-menu {
+    .cd-menu__item {
+      .cd-menu__text {
+        &:active {
+          background: #f9f9f9;
+        }
+      }
+
+      &.cd-menu__item--disabled {
+        .cd-menu__text {
+          &:active {
+            background: none;
+          }
+        }
+      }
+    }
+  }
+}
