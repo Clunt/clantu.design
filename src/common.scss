@@ -1,0 +1,122 @@
+$screen-xs: 480px !default;
+$screen-xs-min: $screen-xs !default;
+$screen-sm: 768px !default;
+$screen-sm-min: $screen-sm !default;
+$screen-md: 992px !default;
+$screen-md-min: $screen-md !default;
+$screen-lg: 1200px !default;
+$screen-lg-min: $screen-lg !default;
+$screen-xs-max: ($screen-sm-min - 1) !default;
+$screen-sm-max: ($screen-md-min - 1) !default;
+$screen-md-max: ($screen-lg-min - 1) !default;
+
+$platform-pc: 992px;
+$platform-pc-min: $platform-pc;
+$platform-pad: 480px;
+$platform-pad-min: $platform-pad;
+$platform-pad-max: $platform-pc - 1;
+$platform-phone: 0;
+$platform-phone-min: $platform-phone;
+$platform-phone-max: $platform-pad - 1;
+$platform-phone-lg-max: $screen-xs-max;
+
+$defaultColor: #000;
+$defaultFontSize: 16px;
+$defaultLineHeight: 1.5;
+$defaultFontFamily: "Microsoft Yahei", "Times New Roman", STFangsong, FangSong_GB2312, '仿宋_GB2312', FangSong, '仿宋', -apple-system, BlinkMacSystemFont, PingFangSC-Regular, "Helvetica Neue", Helvetica, "Hiragino Sans GB", "Segoe UI", Tahoma, Arial, STHeiti, sans-serif;
+$defaultColorLink: #000;
+
+$defaultColor1: #333;
+$defaultColor2: #707070;
+$defaultColor3: #9e9e9e;
+$defaultColor4: #bdbdbd;
+$defaultColor5: #dbdbdb;
+$defaultColor6: #e6e6e6;
+$defaultColor7: #f0f0f0;
+$defaultColor8: #fafafa;
+$defaultColor9: #fefefe;
+
+$primaryColor: #4285F4;
+$successColor: #7ED321;
+$dangerColor: #D94C32;
+$warnColor: #F5A623;
+$ghostColor: #9e9e9e;
+
+
+@mixin make-ellipsis($lineHeight:16px, $line:1) {
+  @if $line==1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  } @else {
+    display: inline-block;
+    display: -webkit-box;
+    max-height: $line * $lineHeight;
+    line-height: $lineHeight;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: $line;
+    /* autoprefixer: off */
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+    word-wrap: break-word;
+  }
+}
+
+@mixin make-mulitline() {
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+@mixin make-vertical($before: false) {
+  @if $before==true {
+    &:before {
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 100%;
+      vertical-align: middle;
+    }
+  } @else {
+    &:after {
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 100%;
+      vertical-align: middle;
+    }
+  }
+}
+
+@mixin prevent-scroll-penetrate() {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+
+  &:after {
+    content: '\20';
+    display: block;
+    height: 101%;
+  }
+}
+
+@mixin make-minimal-upload() {
+  background: #000;
+
+  &>.cd-navigation {
+    bottom: 44px;
+    border-radius: 0 0 11px 11px;
+    overflow: hidden;
+
+    .cd-navigation__item--more .cd-navigation__more,
+    .cd-navigation__item--menu .cd-navigation__menu {
+      bottom: 44px !important;
+    }
+  }
+}

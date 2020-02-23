@@ -1,0 +1,56 @@
+.cd-resize {
+  .cd-resize__x,
+  .cd-resize__y {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    visibility: hidden;
+    overflow: hidden;
+  }
+
+  .cd-resize__expand,
+  .cd-resize__shrink {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
+
+  .resize__placeholder {
+    width: 1px;
+    height: 1px;
+  }
+
+  .cd-resize__x {
+    left: 0;
+    height: 0;
+
+    .cd-resize__expand,
+    .cd-resize__shrink {
+      width: 100%;
+      height: 1px;
+    }
+
+    .resize__placeholder {
+      width: 200%;
+    }
+
+  }
+
+  .cd-resize__y {
+    top: 0;
+    width: 0;
+
+    .cd-resize__expand,
+    .cd-resize__shrink {
+      width: 1px;
+      height: 100%;
+    }
+
+    .resize__placeholder {
+      height: 200%;
+    }
+
+  }
+
+}

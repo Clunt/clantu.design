@@ -1,0 +1,85 @@
+$grid-columns: 24;
+$prefix-column: "cd-col";
+
+@mixin make-grid-columns($i: 0, $list: "", $zero: "") {
+  @for $i from (0) through $grid-columns {
+    $list: if($i > 1, "#{$list}, ", "") + ".#{$prefix-column}-#{$i}, .#{$prefix-column}-xs-#{$i}, .#{$prefix-column}-sm-#{$i}, .#{$prefix-column}-md-#{$i}, .#{$prefix-column}-lg-#{$i}";
+    @if $i == 0 {
+      $zero: $list;
+      $list: "";
+    }
+  }
+  .#{$prefix-column} {
+    position: relative;
+    display: block;
+  }
+
+  #{$zero} {
+    display: none;
+  }
+
+  #{$list} {
+    position: relative;
+    min-height: 1px;
+  }
+}
+
+
+@mixin float-grid-columns($class, $i: 0, $list: "") {
+  @for $i from (1) through $grid-columns {
+    $list: if($i > 1, "#{$list}, ", "") + ".#{$class}-#{$i}";
+  }
+  #{$list} {
+    float: left;
+  }
+}
+
+@mixin calc-grid-column($index, $class, $type) {
+  @if ($type == width) and ($index > 0) {
+    .#{$class}-#{$index} {
+      width: percentage(($index / $grid-columns));
+    }
+  }
+  @if ($type == push) and ($index > 0) {
+    .#{$class}-push-#{$index} {
+      left: percentage(($index / $grid-columns));
+    }
+  }
+  @if ($type == push) and ($index == 0) {
+    .#{$class}-push-0 {
+      left: auto;
+    }
+  }
+  @if ($type == pull) and ($index > 0) {
+    .#{$class}-pull-#{$index} {
+      right: percentage(($index / $grid-columns));
+    }
+  }
+  @if ($type == pull) and ($index == 0) {
+    .#{$class}-pull-0 {
+      right: auto;
+    }
+  }
+  @if ($type == offset) {
+    .#{$class}-offset-#{$index} {
+      margin-left: percentage(($index / $grid-columns));
+    }
+  }
+}
+
+@mixin loop-grid-columns($columns, $class, $type) {
+  @for $i from 0 through $columns {
+    @include calc-grid-column($i, $class, $type);
+  }
+}
+
+
+@mixin make-grid($class: "") {
+  $class: if($class == "", $prefix-column, "#{$prefix-column}-#{$class}");
+
+  @include float-grid-columns($class);
+  @include loop-grid-columns($grid-columns, $class, width);
+  @include loop-grid-columns($grid-columns, $class, pull);
+  @include loop-grid-columns($grid-columns, $class, push);
+  @include loop-grid-columns($grid-columns, $class, offset);
+}

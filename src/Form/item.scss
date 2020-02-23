@@ -1,0 +1,82 @@
+@import '../common.scss';
+
+.cd-form-item {
+  position: relative;
+  display: inline-block;
+  // TODO
+  // vertical-align: bottom;
+
+  .cd-form-item__error {
+    position: absolute;
+    left: 0;
+    bottom: -21px;
+    font-size: 12px;
+    color: $dangerColor;
+    line-height: 18px;
+    white-space: nowrap;
+  }
+
+  &--kind-frame {
+    .cd-form-item__error {
+      bottom: -28px;
+    }
+
+  }
+
+  .cd-input,
+  .cd-select {
+    display: block;
+  }
+
+  &--error {
+    .cd-input {
+      &.cd-input--kind-default {
+        .cd-input__border {
+          &:after {
+            width: 100%;
+            background: $dangerColor;
+          }
+
+        }
+
+      }
+
+      &.cd-input--kind-frame {
+        .cd-input__element {
+          color: $dangerColor;
+        }
+
+      }
+
+    }
+
+    .cd-select {
+      &.cd-select--kind-default {
+        .cd-select__selection {
+          .selection__border {
+            &:after {
+              width: 100%;
+              background: $dangerColor;
+            }
+
+          }
+
+        }
+
+      }
+
+      &.cd-select--kind-frame {
+        .cd-select__selection {
+          .selection__text {
+            color: $dangerColor;
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
